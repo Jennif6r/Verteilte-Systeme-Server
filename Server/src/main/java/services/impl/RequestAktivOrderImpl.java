@@ -1,5 +1,6 @@
 package main.java.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import data.AllOrders;
@@ -11,18 +12,18 @@ import models.OrderList;
 public class RequestAktivOrderImpl implements RequestAktivOrder {
 
 	@Override
-	public boolean isThereAnAktivOrder() {
-		System.out.println("in method");
+	public List<OrderList> isThereAnAktivOrder() {
 		AllOrders all = new AllOrders();
 		System.out.println("after new all orders" );
 		List<OrderList> allOrders = all.getOrders();
+		List<OrderList> activOrders = new ArrayList<OrderList>();
 		System.out.println(allOrders);
 		for (OrderList order: allOrders) {
 			if(order.getAktiv()) {
-				return true;
+				activOrders.add(order);
 			}
 		}
-		return false;
+		return activOrders;
 	}
 
 }

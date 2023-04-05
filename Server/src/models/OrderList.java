@@ -1,11 +1,12 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import data.AllOrders;
 
 public class OrderList {
-	private List<Order> orders;
+	private List<Order> orders = new ArrayList<Order>();
 	private boolean aktiv;
 	private String orderId;
 	
@@ -20,6 +21,7 @@ public class OrderList {
 	
 	public void addOrder(Order order) {
 		this.orders.add(order);
+		new AllOrders().updateOrder(this);
 	}
 	
 	public List<Order> getOrders(){

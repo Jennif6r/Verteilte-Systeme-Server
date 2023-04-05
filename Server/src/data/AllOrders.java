@@ -79,4 +79,15 @@ public class AllOrders {
 		return null;
 	}
 
+	public void updateOrder(OrderList orderList) {
+		allOrders = getOrders();
+		for(OrderList order : allOrders) {
+			if(order == orderList) {
+				allOrders.remove(order);
+				allOrders.add(orderList);
+			}
+		}
+		saveOrders();
+	}
+
 }
