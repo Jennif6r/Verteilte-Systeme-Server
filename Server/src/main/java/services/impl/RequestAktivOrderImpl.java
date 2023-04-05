@@ -12,9 +12,13 @@ public class RequestAktivOrderImpl implements RequestAktivOrder {
 
 	@Override
 	public boolean isThereAnAktivOrder() {
-		List<OrderList> allOrders = AllOrders.getOrders();
+		System.out.println("in method");
+		AllOrders all = new AllOrders();
+		System.out.println("after new all orders" );
+		List<OrderList> allOrders = all.getOrders();
+		System.out.println(allOrders);
 		for (OrderList order: allOrders) {
-			if(order.getStatus()) {
+			if(order.getAktiv()) {
 				return true;
 			}
 		}
