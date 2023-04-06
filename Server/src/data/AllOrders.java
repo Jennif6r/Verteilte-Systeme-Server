@@ -21,13 +21,13 @@ public class AllOrders {
 
 	public void addOrder(OrderList order) {
 		allOrders = getOrders();
-		System.out.println(allOrders);
+//		System.out.println(allOrders);
 		allOrders.add(order);
 		saveOrders();
 	}
 
 	public List<OrderList> getOrders() {
-		System.out.println("all orders");
+//		System.out.println("all orders");
 		String content = readFile();
 		if (file.length() != 0 && content != null) {
 			parseOrdertoJson(content);
@@ -40,7 +40,7 @@ public class AllOrders {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			// Loaded JSON-String is converted to an ArrayList of OrderList objects
-			System.out.println(content.toString());
+//			System.out.println(content.toString());
 			allOrders = new ArrayList<OrderList>(Arrays.asList(mapper.readValue(content, OrderList[].class)));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,14 +80,28 @@ public class AllOrders {
 	}
 
 	public void updateOrder(OrderList orderList) {
+//		System.out.println(orderList);
 		allOrders = getOrders();
+//		System.out.println(allOrders);
 		for(OrderList order : allOrders) {
-			if(order == orderList) {
+//			System.out.println(order);
+			if(order.getOrderId().equals(orderList.getOrderId())) {
 				allOrders.remove(order);
 				allOrders.add(orderList);
+				break;
 			}
 		}
 		saveOrders();
+	}
+	
+	public OrderList getOrderList(String id) {
+		allOrders = getOrders();
+		for(OrderList order : allOrders) {
+			if(order.getOrderId().equals(id)) {
+				return order;
+			}
+		}
+		return null;
 	}
 
 }

@@ -6,13 +6,14 @@ import java.util.List;
 import data.AllOrders;
 
 public class OrderList {
-	private List<Order> orders = new ArrayList<Order>();
+	private List<Order> orders; 
 	private boolean aktiv;
 	private String orderId;
 	
 	public OrderList() {
 		this.aktiv = true;
 		this.orderId = Long.toString(System.currentTimeMillis());
+		this.orders = new ArrayList<Order>();
 	}
 	
 	public void addOrderListToAllOrders() {
@@ -20,6 +21,8 @@ public class OrderList {
 	}
 	
 	public void addOrder(Order order) {
+		System.out.println(order.getOrder());
+//		System.out.println(this.orders);
 		this.orders.add(order);
 		new AllOrders().updateOrder(this);
 	}
