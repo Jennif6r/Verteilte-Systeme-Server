@@ -7,7 +7,7 @@ import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import models.Order;
+import main.java.models.Order;
 
 public class JsonParser {
 	public static Order parseToOrder(String json) {

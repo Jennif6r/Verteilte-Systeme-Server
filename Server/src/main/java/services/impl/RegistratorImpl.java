@@ -2,8 +2,8 @@ package main.java.services.impl;
 
 import java.util.ArrayList;
 
-import data.RegisteredIds;
 import jakarta.jws.WebService;
+import main.java.data.RegisteredIds;
 import main.java.services.Registrator;
 
 @WebService(endpointInterface = "main.java.services.Registrator")

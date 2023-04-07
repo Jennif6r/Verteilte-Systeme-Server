@@ -2,11 +2,11 @@ package main.java.services.impl;
 
 import java.util.List;
 
-import data.AllOrders;
 import jakarta.jws.WebService;
+import main.java.data.AllOrders;
+import main.java.models.Order;
+import main.java.models.OrderList;
 import main.java.services.GetNumberOfOrders;
-import models.Order;
-import models.OrderList;
 
 @WebService(endpointInterface = "main.java.services.GetNumberOfOrders")
 public class GetNumberOfOrdersImpl implements GetNumberOfOrders{

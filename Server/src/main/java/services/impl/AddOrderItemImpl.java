@@ -1,10 +1,10 @@
 package main.java.services.impl;
 
-import data.AllOrders;
 import jakarta.jws.WebService;
+import main.java.data.AllOrders;
+import main.java.models.Order;
+import main.java.models.OrderList;
 import main.java.services.AddOrderItem;
-import models.Order;
-import models.OrderList;
 
 @WebService(endpointInterface = "main.java.services.AddOrderItem")
 public class AddOrderItemImpl implements AddOrderItem{

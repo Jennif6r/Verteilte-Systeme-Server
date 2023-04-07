@@ -8,12 +8,12 @@ import java.util.Map.Entry;
 
 import java.util.Set;
 
-import data.AllOrders;
 import jakarta.jws.WebService;
+import main.java.data.AllOrders;
+import main.java.models.Order;
+import main.java.models.OrderList;
+import main.java.models.Product;
 import main.java.services.MergeOrder;
-import models.Order;
-import models.OrderList;
-import models.Product;
 
 @WebService(endpointInterface = "main.java.services.MergeOrder")
 public class MergeOrderImpl implements MergeOrder{

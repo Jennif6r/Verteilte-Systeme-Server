@@ -3,10 +3,10 @@ package main.java.services.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import data.AllOrders;
 import jakarta.jws.WebService;
+import main.java.data.AllOrders;
+import main.java.models.OrderList;
 import main.java.services.RequestAktivOrder;
-import models.OrderList;
 
 @WebService(endpointInterface = "main.java.services.RequestAktivOrder")
 public class RequestAktivOrderImpl implements RequestAktivOrder {

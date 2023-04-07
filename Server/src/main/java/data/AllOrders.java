@@ -1,4 +1,4 @@
-package data;
+package main.java.data;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -13,7 +13,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import models.OrderList;
+import main.java.models.OrderList;
 
 public class AllOrders {
 	List<OrderList> allOrders;

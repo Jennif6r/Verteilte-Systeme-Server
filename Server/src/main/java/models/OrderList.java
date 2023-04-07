@@ -1,9 +1,9 @@
-package models;
+package main.java.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import data.AllOrders;
+import main.java.data.AllOrders;
 
 public class OrderList {
 	private List<Order> orders; 
