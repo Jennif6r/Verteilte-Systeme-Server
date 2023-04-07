@@ -17,10 +17,11 @@ import models.Product;
 
 @WebService(endpointInterface = "main.java.services.MergeOrder")
 public class MergeOrderImpl implements MergeOrder{
-	Map<String, Integer> order = new HashMap<String, Integer>();
+	Map<String, Integer> order;
 	
 	@Override
 	public String getMergedOrder(String orderId) {
+		order = new HashMap<String, Integer>();
 		OrderList orderToMerge = getOrderToMerge(orderId);
 		return parseOrderToMerge(orderToMerge);
 		
