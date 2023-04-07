@@ -6,7 +6,7 @@ public class RegisteredIds {
 	private static ArrayList<String> ids = new ArrayList<String>();
 	
 	public RegisteredIds() {
-		ids.add("0");
+//		ids.add("0");
 	}
 
 	public static ArrayList<String> getIds() {

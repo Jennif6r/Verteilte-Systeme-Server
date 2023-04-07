@@ -12,7 +12,7 @@ import models.OrderList;
 public class RequestAktivOrderImpl implements RequestAktivOrder {
 
 	@Override
-	public OrderList[] isThereAnAktivOrder() {
+	public String[] isThereAnAktivOrder() {
 		AllOrders all = new AllOrders();
 		System.out.println("after new all orders" );
 		List<OrderList> allOrders = all.getOrders();
@@ -26,12 +26,12 @@ public class RequestAktivOrderImpl implements RequestAktivOrder {
 		return parseListToArray(activOrders);
 	}
 
-	private OrderList[] parseListToArray(List<OrderList> orders) {
-		OrderList[] activOrders = new OrderList[orders.size()];
-		for (int i = 0; i < activOrders.length; i++) {
-			activOrders[i] = orders.get(i);
+	private String[] parseListToArray(List<OrderList> orders) {
+		String[] activOrderIds = new String[orders.size()];
+		for (int i = 0; i < activOrderIds.length; i++) {
+			activOrderIds[i] = orders.get(i).getOrderId();
 		}
-		return activOrders;
+		return activOrderIds;
 	}
 
 }
