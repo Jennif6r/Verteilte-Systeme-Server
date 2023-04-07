@@ -33,6 +33,7 @@ public class OrderList {
 	
 	public void finishOrder() {
 		this.aktiv = false;
+		new AllOrders().updateOrder(this);
 	}
 	
 	public boolean getAktiv() {

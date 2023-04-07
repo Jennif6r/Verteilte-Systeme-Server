@@ -23,6 +23,7 @@ public class MergeOrderImpl implements MergeOrder{
 	public String getMergedOrder(String orderId) {
 		order = new HashMap<String, Integer>();
 		OrderList orderToMerge = getOrderToMerge(orderId);
+		orderToMerge.finishOrder();
 		return parseOrderToMerge(orderToMerge);
 		
 	}
@@ -40,7 +41,6 @@ public class MergeOrderImpl implements MergeOrder{
 			String name = product.getName();
 			int number = product.getNumber();
 			if(this.order.containsKey(name)) {
-//				this.order.remove(name);
 				this.order.put(name, this.order.get(name) + number);
 				
 			}else {

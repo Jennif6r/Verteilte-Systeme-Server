@@ -31,6 +31,8 @@ public class AllOrders {
 		String content = readFile();
 		if (file.length() != 0 && content != null) {
 			parseOrdertoJson(content);
+		}else {
+			allOrders = new ArrayList<OrderList>();
 		}
 		return allOrders;
 	}

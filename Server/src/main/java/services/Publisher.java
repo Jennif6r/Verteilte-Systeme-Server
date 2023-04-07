@@ -1,5 +1,8 @@
 package main.java.services;
 
+import java.io.File;
+import java.io.IOException;
+
 import jakarta.xml.ws.Endpoint;
 import main.java.services.impl.AddOrderItemImpl;
 import main.java.services.impl.GetNumberOfOrdersImpl;
@@ -17,5 +20,11 @@ public class Publisher {
 		Endpoint.publish(path + "addOrderItem", new AddOrderItemImpl());
 		Endpoint.publish(path + "getMergedOrder", new MergeOrderImpl());
 		Endpoint.publish(path + "getNumberOfOrders", new GetNumberOfOrdersImpl());
+		try {
+			new File("orders.txt").createNewFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
