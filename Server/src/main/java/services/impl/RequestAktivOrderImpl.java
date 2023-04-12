@@ -12,7 +12,7 @@ import main.java.services.RequestAktivOrder;
 public class RequestAktivOrderImpl implements RequestAktivOrder {
 
 	@Override
-	public String[] isThereAnAktivOrder() {
+	public String[][] isThereAnAktivOrder() {
 		AllOrders all = new AllOrders();
 		System.out.println("after new all orders" );
 		List<OrderList> allOrders = all.getOrders();
@@ -26,10 +26,11 @@ public class RequestAktivOrderImpl implements RequestAktivOrder {
 		return parseListToArray(activOrders);
 	}
 
-	private String[] parseListToArray(List<OrderList> orders) {
-		String[] activOrderIds = new String[orders.size()];
+	private String[][] parseListToArray(List<OrderList> orders) {
+		String[][] activOrderIds = new String[orders.size()][2];
 		for (int i = 0; i < activOrderIds.length; i++) {
-			activOrderIds[i] = orders.get(i).getOrderId();
+			activOrderIds[i][0] = orders.get(i).getUser();
+			activOrderIds[i][1] = orders.get(i).getOrderId();
 		}
 		return activOrderIds;
 	}

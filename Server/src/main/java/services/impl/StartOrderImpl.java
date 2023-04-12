@@ -8,8 +8,8 @@ import main.java.services.StartOrder;
 public class StartOrderImpl implements StartOrder {
 
 	@Override
-	public String startOrder() {
-		OrderList orderList = new OrderList();
+	public String startOrder(String user) {
+		OrderList orderList = new OrderList(user);
 		orderList.addOrderListToAllOrders();
 		return orderList.getOrderId();
 	}

@@ -10,5 +10,5 @@ import main.java.models.OrderList;
 public interface RequestAktivOrder {
 	
 	@WebMethod
-	String[] isThereAnAktivOrder();
+	String[][] isThereAnAktivOrder();
 }
