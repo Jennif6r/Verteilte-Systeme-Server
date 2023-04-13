@@ -29,9 +29,7 @@ public class MergeOrderImpl implements MergeOrder{
 	}
 
 	private String parseOrderToMerge(OrderList orderToMerge) {
-		List<Order> orders =  orderToMerge.getOrders();
-		List<Product> products = getProducts(orders);
-		return mergeOrder(products);
+		return mergeOrder(getProducts(orderToMerge.getOrders()));
 		
 		
 	}
@@ -51,9 +49,9 @@ public class MergeOrderImpl implements MergeOrder{
 	}
 
 	private String orderToString() {
-		Set<Entry<String, Integer>> entrysOder = this.order.entrySet();
+		Set<Entry<String, Integer>> entrysOrder = this.order.entrySet();
 		StringBuilder build = new StringBuilder();
-		for (Entry<String, Integer> entry : entrysOder) {
+		for (Entry<String, Integer> entry : entrysOrder) {
 			build.append(entry.getKey() +" : " + entry.getValue() + "\n");
 		}
 		return build.toString();
@@ -70,8 +68,7 @@ public class MergeOrderImpl implements MergeOrder{
 	}
 
 	private OrderList getOrderToMerge(String orderId) {
-		List<OrderList> orderList = new AllOrders().getOrders();
-		for (OrderList order : orderList) {
+		for (OrderList order : new AllOrders().getOrders()) {
 			if(order.getOrderId().equals(orderId)) {
 				return order;
 			}

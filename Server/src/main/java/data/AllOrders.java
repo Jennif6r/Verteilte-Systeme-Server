@@ -21,13 +21,11 @@ public class AllOrders {
 
 	public void addOrder(OrderList order) {
 		allOrders = getOrders();
-//		System.out.println(allOrders);
 		allOrders.add(order);
 		saveOrders();
 	}
 
 	public List<OrderList> getOrders() {
-//		System.out.println("all orders");
 		String content = readFile();
 		if (file.length() != 0 && content != null) {
 			parseOrdertoJson(content);
@@ -38,12 +36,8 @@ public class AllOrders {
 	}
 
 	private void parseOrdertoJson(String content) {
-		// Create ObjectMapper for demarshalling
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			// Loaded JSON-String is converted to an ArrayList of OrderList objects
-//			System.out.println(content.toString());
-//			System.out.println(mapper.readValue(content, OrderList[].class));
 			allOrders = new ArrayList<OrderList>(Arrays.asList(mapper.readValue(content, OrderList[].class)));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -76,18 +70,14 @@ public class AllOrders {
 		try {
 			return Files.readString(Path.of(file.getPath()));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 	}
 
 	public void updateOrder(OrderList orderList) {
-//		System.out.println(orderList);
 		allOrders = getOrders();
-//		System.out.println(allOrders);
 		for(OrderList order : allOrders) {
-//			System.out.println(order);
 			if(order.getOrderId().equals(orderList.getOrderId())) {
 				allOrders.remove(order);
 				allOrders.add(orderList);

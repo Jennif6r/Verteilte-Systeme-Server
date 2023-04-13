@@ -1,7 +1,5 @@
 package main.java.services.impl;
 
-import java.util.List;
-
 import jakarta.jws.WebService;
 import main.java.data.AllOrders;
 import main.java.data.RegisteredIds;
@@ -13,15 +11,12 @@ public class LogoutImpl implements Logout {
 
 	@Override
 	public void logoutOfClient(String clientId, String username) {
-		// TODO Auto-generated method stub
-		System.out.println("logout " + clientId + " " + username);
 		finishOrdersForClient(username);
 		RegisteredIds.removeId(clientId);
 	}
 
 	private void finishOrdersForClient(String user) {
-		List<OrderList> allOrders = new AllOrders().getOrders();
-		for(OrderList orders: allOrders) {
+		for(OrderList orders: new AllOrders().getOrders()) {
 			if(orders.getUser().equals(user)) {
 				orders.finishOrder();
 			}

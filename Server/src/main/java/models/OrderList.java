@@ -37,7 +37,6 @@ public class OrderList {
 	}
 	
 	public void addOrder(Order order) {
-		System.out.println(order.getOrder());
 		this.orders.add(order);
 		new AllOrders().updateOrder(this);
 	}

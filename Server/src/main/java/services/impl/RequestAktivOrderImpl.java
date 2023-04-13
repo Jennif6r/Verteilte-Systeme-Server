@@ -13,12 +13,8 @@ public class RequestAktivOrderImpl implements RequestAktivOrder {
 
 	@Override
 	public String[][] isThereAnAktivOrder() {
-		AllOrders all = new AllOrders();
-		System.out.println("after new all orders" );
-		List<OrderList> allOrders = all.getOrders();
 		List<OrderList> activOrders = new ArrayList<OrderList>();
-		System.out.println(allOrders);
-		for (OrderList order: allOrders) {
+		for (OrderList order: new AllOrders().getOrders()) {
 			if(order.getAktiv()) {
 				activOrders.add(order);
 			}
