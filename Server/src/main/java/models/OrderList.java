@@ -14,7 +14,17 @@ public class OrderList {
 	public String getUser() {
 		return user;
 	}
+	public OrderList() {
+		
+	}
 
+	public OrderList(List<Order> orders, boolean aktiv, String orderId, String username) {
+		this.orders = orders;
+		this.aktiv = aktiv;
+		this.orderId = orderId;
+		this.user = username;
+	}
+	
 	public OrderList(String username) {
 		this.aktiv = true;
 		this.orderId = Long.toString(System.currentTimeMillis());
