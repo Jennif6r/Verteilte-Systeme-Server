@@ -42,8 +42,8 @@ public class AllOrders {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			// Loaded JSON-String is converted to an ArrayList of OrderList objects
-			System.out.println(content.toString());
-			System.out.println(mapper.readValue(content, OrderList[].class));
+//			System.out.println(content.toString());
+//			System.out.println(mapper.readValue(content, OrderList[].class));
 			allOrders = new ArrayList<OrderList>(Arrays.asList(mapper.readValue(content, OrderList[].class)));
 		} catch (Exception e) {
 			e.printStackTrace();
